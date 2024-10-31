@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dfxw3n687fc27"]
+[gd_scene load_steps=7 format=3 uid="uid://dfxw3n687fc27"]
 
 [ext_resource type="Script" path="res://Scenes/absolPit.gd" id="1_wvrfn"]
 [ext_resource type="PackedScene" uid="uid://lqp2gomgmv2r" path="res://Scenes/sawblade.tscn" id="2_wpbf1"]
@@ -8,6 +8,12 @@ size = Vector2(640, 230)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a0vmf"]
 size = Vector2(640, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7r840"]
+size = Vector2(1, 1050)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oxm3a"]
+size = Vector2(0, 1050)
 
 [node name="pit" type="Node2D"]
 script = ExtResource("1_wvrfn")
@@ -34,17 +40,27 @@ offset_bottom = 820.0
 color = Color(0.629675, 0.629675, 0.629675, 1)
 
 [node name="sawblade" parent="descentArea" instance=ExtResource("2_wpbf1")]
-position = Vector2(320, 215)
-metadata/lethality = 1
+position = Vector2(194, 217)
 
 [node name="sawblade2" parent="descentArea" instance=ExtResource("2_wpbf1")]
-position = Vector2(455, 404)
-metadata/lethality = 1
+position = Vector2(317, 440)
 
 [node name="carpet" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="carpet"]
 position = Vector2(320, 1050)
 shape = SubResource("RectangleShape2D_a0vmf")
+
+[node name="leftWall" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="leftWall"]
+position = Vector2(640, 525)
+shape = SubResource("RectangleShape2D_7r840")
+
+[node name="rightWall" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rightWall"]
+position = Vector2(0, 525)
+shape = SubResource("RectangleShape2D_oxm3a")
 
 [connection signal="gui_input" from="Area2D/placeholderSprite" to="." method="clickDetectedInClickArea"]
