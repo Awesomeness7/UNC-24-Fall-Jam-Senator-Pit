@@ -3,7 +3,7 @@ Phase 0
 - Spawn senator on click (Jason)
 - Senator physics (falling, bouncing) (Jason)
 - Senator collisions, health meters, death (Anna)
-- Very temporary level
+- Very temporary level (Anna)
 
 Phase 1
 - Basic control for stage hazards (buzzsaws that go back and forth, flamethrowers that spit on timer)

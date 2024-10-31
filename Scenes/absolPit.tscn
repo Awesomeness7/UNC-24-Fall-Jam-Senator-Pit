@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://dfxw3n687fc27"]
+
+[ext_resource type="Script" path="res://Scenes/absolPit.gd" id="1_wvrfn"]
+[ext_resource type="PackedScene" uid="uid://lqp2gomgmv2r" path="res://Scenes/sawblade.tscn" id="2_wpbf1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c1dn6"]
+size = Vector2(640, 230)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a0vmf"]
+size = Vector2(640, 0)
+
+[node name="pit" type="Node2D"]
+script = ExtResource("1_wvrfn")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="placeholderSprite" type="ColorRect" parent="Area2D"]
+offset_right = 640.0
+offset_bottom = 230.0
+color = Color(0.388972, 0.704362, 0.814053, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(320, 115)
+shape = SubResource("RectangleShape2D_c1dn6")
+
+[node name="clickArea" type="Node2D" parent="."]
+
+[node name="descentArea" type="Node2D" parent="."]
+position = Vector2(0, 230)
+
+[node name="placeholderSprite" type="ColorRect" parent="descentArea"]
+offset_right = 640.0
+offset_bottom = 820.0
+color = Color(0.629675, 0.629675, 0.629675, 1)
+
+[node name="sawblade" parent="descentArea" instance=ExtResource("2_wpbf1")]
+position = Vector2(320, 215)
+metadata/lethality = 1
+
+[node name="sawblade2" parent="descentArea" instance=ExtResource("2_wpbf1")]
+position = Vector2(455, 404)
+metadata/lethality = 1
+
+[node name="carpet" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="carpet"]
+position = Vector2(320, 1050)
+shape = SubResource("RectangleShape2D_a0vmf")
+
+[connection signal="gui_input" from="Area2D/placeholderSprite" to="." method="clickDetectedInClickArea"]

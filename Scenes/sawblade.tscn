@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://lqp2gomgmv2r"]
+
+[ext_resource type="Script" path="res://Scenes/sawblade.gd" id="1_b5ki6"]
+[ext_resource type="Texture2D" uid="uid://fiyc3hsnx78m" path="res://Sprites/temporarySawblade.png" id="1_lf7d6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6yprw"]
+radius = 587.532
+
+[node name="sawblade" type="Node2D"]
+position = Vector2(64, 64)
+scale = Vector2(0.106447, 0.106447)
+script = ExtResource("1_b5ki6")
+metadata/Lethality = 0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+metadata/Lethality = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CircleShape2D_6yprw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_lf7d6")
