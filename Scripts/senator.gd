@@ -12,7 +12,13 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	match (state):
+		3:
+			rotation -= sign(rotation) * delta * .2
+			
+			if abs(rotation) < .0005:
+				rotation = 0
+				state = 3
 
 func die():
 	print("Dieded")
@@ -32,11 +38,12 @@ func stillnessCheck() -> void:
 
 func hitboxIntruded(intrudingBody: Node2D) -> void:
 	if state != 1:
+		state = 0
+		
 		if (intrudingBody.has_meta("Lethality")):
 			print("Lethal intrusion!")
 			match intrudingBody.get_meta("Lethality"):
 				1:
 					hp -= .34
-					state = 0
 			if hp <= 0:
 				die()
