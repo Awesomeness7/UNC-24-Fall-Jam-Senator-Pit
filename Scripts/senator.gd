@@ -8,7 +8,10 @@ var hp = 1.0
 # Called when the node enters the scene tree for the first time.
 
 func _ready() -> void:
-	pass # Replace with function body.
+	set_contact_monitor(true)
+	max_contacts_reported = 10
+	
+var old_lin_vel: Vector2
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -28,6 +31,7 @@ func die():
 
 var positionAtLastCheck
 func stillnessCheck() -> void:
+	print("Happens")
 	if (state == 0):
 		if ((position == positionAtLastCheck) && (linear_velocity.length() == 0)):
 			print("Raise up!")
@@ -36,14 +40,17 @@ func stillnessCheck() -> void:
 		else:
 			positionAtLastCheck = position
 
-func hitboxIntruded(intrudingBody: Node2D) -> void:
+
+func collisionBegin(intrudingBody: Node2D) -> void:
 	if state != 1:
 		state = 0
 		
 		if (intrudingBody.has_meta("Lethality")):
-			print("Lethal intrusion!")
+			var force = linear_velocity.distance_to((old_lin_vel))
 			match intrudingBody.get_meta("Lethality"):
 				1:
 					hp -= .34
+					hp -= force/1000
+					state = 0
 			if hp <= 0:
 				die()
