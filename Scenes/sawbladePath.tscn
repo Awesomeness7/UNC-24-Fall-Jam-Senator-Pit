@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1qw7nrle8spy"]
+
+[ext_resource type="Script" path="res://Scripts/sawbladePath.gd" id="1_0c7bm"]
+[ext_resource type="PackedScene" uid="uid://lqp2gomgmv2r" path="res://Scenes/sawblade.tscn" id="1_bv3wi"]
+
+[sub_resource type="Curve2D" id="Curve2D_02u2l"]
+
+[node name="sawbladePath" type="Path2D"]
+curve = SubResource("Curve2D_02u2l")
+script = ExtResource("1_0c7bm")
+
+[node name="sawbladePathFollow" type="PathFollow2D" parent="."]
+rotation = 3.14159
+
+[node name="sawblade" parent="sawbladePathFollow" instance=ExtResource("1_bv3wi")]
+position = Vector2(0, 0)

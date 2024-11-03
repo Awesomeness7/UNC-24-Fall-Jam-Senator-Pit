@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dfxw3n687fc27"]
+[gd_scene load_steps=8 format=3 uid="uid://dfxw3n687fc27"]
 
-[ext_resource type="Script" path="res://Scenes/absolPit.gd" id="1_wvrfn"]
+[ext_resource type="Script" path="res://Scripts/absolPit.gd" id="1_wvrfn"]
 [ext_resource type="PackedScene" uid="uid://lqp2gomgmv2r" path="res://Scenes/sawblade.tscn" id="2_wpbf1"]
+[ext_resource type="PackedScene" uid="uid://c1qw7nrle8spy" path="res://Scenes/sawbladePath.tscn" id="3_8awts"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c1dn6"]
 size = Vector2(640, 230)
@@ -40,10 +41,11 @@ offset_bottom = 820.0
 color = Color(0.629675, 0.629675, 0.629675, 1)
 
 [node name="sawblade" parent="descentArea" instance=ExtResource("2_wpbf1")]
-position = Vector2(194, 217)
+position = Vector2(200, 217)
 
-[node name="sawblade2" parent="descentArea" instance=ExtResource("2_wpbf1")]
-position = Vector2(317, 440)
+[node name="sawbladePath" parent="descentArea" instance=ExtResource("3_8awts")]
+position = Vector2(200, 370)
+points = [Vector2(0, 0), Vector2(240, 0)]
 
 [node name="carpet" type="StaticBody2D" parent="."]
 
