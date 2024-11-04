@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c1qw7nrle8spy"]
 
 [ext_resource type="Script" path="res://Scripts/sawbladePath.gd" id="1_0c7bm"]
-[ext_resource type="PackedScene" uid="uid://lqp2gomgmv2r" path="res://Scenes/sawblade.tscn" id="1_bv3wi"]
+[ext_resource type="PackedScene" uid="uid://lqp2gomgmv2r" path="res://Scenes/CommonScenes/Hazards/sawblade.tscn" id="1_bv3wi"]
 
 [sub_resource type="Curve2D" id="Curve2D_02u2l"]
 

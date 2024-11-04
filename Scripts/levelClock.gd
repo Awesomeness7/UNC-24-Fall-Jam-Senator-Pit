@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var duration: int = 63
+@export var duration: int = 123
 
 var timeRemainingLabel
 

@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://jj6nbq41t02g"]
 
-[ext_resource type="PackedScene" uid="uid://dfxw3n687fc27" path="res://Scenes/absolPit.tscn" id="1_32xe1"]
+[ext_resource type="PackedScene" uid="uid://id4r10exgoa6" path="res://Scenes/LevelOne/levelOne.tscn" id="1_ki5aj"]
 
-[node name="mainDropGameParent" type="Node2D"]
+[node name="gameplayLevel" type="Node2D"]
 
 [node name="background" type="Node2D" parent="."]
 
@@ -10,6 +10,7 @@
 offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(0.588128, 0.603388, 0.888314, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="pitFrame" type="Node2D" parent="."]
 position = Vector2(625, 0)
@@ -19,5 +20,5 @@ offset_right = 670.0
 offset_bottom = 1080.0
 color = Color(0.54987, 0.468534, 0.728277, 1)
 
-[node name="pit" parent="." instance=ExtResource("1_32xe1")]
+[node name="Node2D" parent="." instance=ExtResource("1_ki5aj")]
 position = Vector2(640, 15)

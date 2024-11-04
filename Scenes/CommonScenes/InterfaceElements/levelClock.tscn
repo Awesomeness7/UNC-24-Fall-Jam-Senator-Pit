@@ -3,10 +3,10 @@
 [ext_resource type="Script" path="res://Scripts/levelClock.gd" id="1_f17pu"]
 [ext_resource type="Texture2D" uid="uid://cy14k88n8kx4a" path="res://Sprites/clockBackground.bmp" id="2_f51ul"]
 
-[sub_resource type="SystemFont" id="SystemFont_hn5y2"]
+[sub_resource type="SystemFont" id="SystemFont_vdteb"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_i3o8a"]
-font = SubResource("SystemFont_hn5y2")
+font = SubResource("SystemFont_vdteb")
 font_size = 70
 
 [node name="levelClock" type="Node2D"]
@@ -25,3 +25,4 @@ offset_right = 149.0
 offset_bottom = 93.0
 text = "2:05"
 label_settings = SubResource("LabelSettings_i3o8a")
+metadata/_edit_use_anchors_ = true

@@ -1,6 +1,8 @@
 extends Node2D
 
-var Senator = load("res://Scenes/senator.tscn")
+signal senatorPlaced
+
+var Senator = load("res://Scenes/CommonScenes/senator.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -15,3 +17,4 @@ func clickDetectedInClickArea(event: InputEvent) -> void:
 		var senator = Senator.instantiate()
 		senator.position = get_local_mouse_position();
 		add_child(senator)
+		senatorPlaced.emit()

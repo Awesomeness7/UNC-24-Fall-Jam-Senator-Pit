@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://fjnrgybfkdr7"]
+
+[ext_resource type="Texture2D" uid="uid://cy14k88n8kx4a" path="res://Sprites/clockBackground.bmp" id="1_jh06q"]
+[ext_resource type="Script" path="res://Scenes/CommonScenes/InterfaceElements/senatorCounter.gd" id="1_t4l18"]
+
+[sub_resource type="SystemFont" id="SystemFont_0lmmp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_s0c78"]
+font = SubResource("SystemFont_0lmmp")
+font_size = 70
+
+[node name="senatorCounter" type="Node2D"]
+script = ExtResource("1_t4l18")
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(7.62939e-06, 0)
+scale = Vector2(2.3, 4.27)
+texture = ExtResource("1_jh06q")
+centered = false
+
+[node name="senatorsRemaining" type="Label" parent="."]
+offset_left = 12.0
+offset_top = -4.0
+offset_right = 151.0
+offset_bottom = 92.0
+text = "40"
+label_settings = SubResource("LabelSettings_s0c78")
+metadata/_edit_use_anchors_ = true

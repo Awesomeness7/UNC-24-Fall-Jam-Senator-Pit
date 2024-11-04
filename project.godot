@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="UNC Game Jam Fall 24 Senator Pit"
-run/main_scene="res://Scenes/mainDropGameParent.tscn"
+run/main_scene="res://Scenes/mainEnvironment.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://Sprites/icon.svg"
 

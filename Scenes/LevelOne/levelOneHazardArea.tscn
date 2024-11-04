@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://doqoib1wbvwyc"]
+
+[ext_resource type="PackedScene" uid="uid://lqp2gomgmv2r" path="res://Scenes/CommonScenes/Hazards/sawblade.tscn" id="1_aufcl"]
+[ext_resource type="PackedScene" uid="uid://c1qw7nrle8spy" path="res://Scenes/sawbladePath.tscn" id="2_hok11"]
+
+[node name="levelOneHazards" type="Node2D"]
+
+[node name="placeholderSprite" type="ColorRect" parent="."]
+offset_right = 640.0
+offset_bottom = 820.0
+color = Color(0.629675, 0.629675, 0.629675, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="sawblade" parent="." instance=ExtResource("1_aufcl")]
+position = Vector2(200, 217)
+
+[node name="sawbladePath" parent="." instance=ExtResource("2_hok11")]
+position = Vector2(200, 370)
+points = [Vector2(0, 0), Vector2(240, 0)]
