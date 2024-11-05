@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://id4r10exgoa6"]
+[gd_scene load_steps=7 format=3 uid="uid://id4r10exgoa6"]
 
 [ext_resource type="Script" path="res://Scripts/levelOne.gd" id="1_vf7wi"]
 [ext_resource type="PackedScene" uid="uid://doqoib1wbvwyc" path="res://Scenes/LevelOne/levelOneHazardArea.tscn" id="2_nn6ga"]
 [ext_resource type="PackedScene" uid="uid://dfxw3n687fc27" path="res://Scenes/CommonScenes/InterfaceElements/pit.tscn" id="3_aw4it"]
 [ext_resource type="PackedScene" uid="uid://b4lrojpuq21qd" path="res://Scenes/CommonScenes/InterfaceElements/levelClock.tscn" id="3_mes3r"]
 [ext_resource type="PackedScene" uid="uid://fjnrgybfkdr7" path="res://Scenes/CommonScenes/InterfaceElements/senatorCounter.tscn" id="4_885hs"]
+[ext_resource type="PackedScene" uid="uid://bn4kdolvbsalb" path="res://Scenes/CommonScenes/quotaCounter.tscn" id="6_hce67"]
 
 [node name="levelOne" type="Node2D"]
 script = ExtResource("1_vf7wi")
@@ -20,6 +21,9 @@ position = Vector2(655, 0)
 [node name="senatorCounter" parent="." instance=ExtResource("4_885hs")]
 position = Vector2(655, 89)
 senatorsRemaining = 40
+
+[node name="quotaCounter" parent="." instance=ExtResource("6_hce67")]
+position = Vector2(655, 178)
 
 [connection signal="senatorPlaced" from="pitGeneric" to="senatorCounter" method="senatorPlaced"]
 [connection signal="senatorsDepleted" from="senatorCounter" to="." method="senatorsDepleted"]

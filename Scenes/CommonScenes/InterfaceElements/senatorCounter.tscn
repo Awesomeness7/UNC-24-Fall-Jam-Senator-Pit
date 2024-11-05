@@ -1,12 +1,12 @@
 [gd_scene load_steps=5 format=3 uid="uid://fjnrgybfkdr7"]
 
 [ext_resource type="Texture2D" uid="uid://cy14k88n8kx4a" path="res://Sprites/clockBackground.bmp" id="1_jh06q"]
-[ext_resource type="Script" path="res://Scenes/CommonScenes/InterfaceElements/senatorCounter.gd" id="1_t4l18"]
+[ext_resource type="Script" path="res://Scripts/senatorCounter.gd" id="1_t4l18"]
 
-[sub_resource type="SystemFont" id="SystemFont_0lmmp"]
+[sub_resource type="SystemFont" id="SystemFont_celnr"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_s0c78"]
-font = SubResource("SystemFont_0lmmp")
+font = SubResource("SystemFont_celnr")
 font_size = 70
 
 [node name="senatorCounter" type="Node2D"]

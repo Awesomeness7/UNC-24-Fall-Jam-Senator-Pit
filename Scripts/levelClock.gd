@@ -1,5 +1,7 @@
 extends Node2D
 
+signal timeOut
+
 @export var duration: int = 123
 
 var timeRemainingLabel
@@ -25,3 +27,4 @@ func _process(delta: float) -> void:
 			timeRemainingLabel.text = "0:00"
 			print("YER DONE!")
 			timerRunning = false
+			timeOut.emit()

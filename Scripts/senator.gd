@@ -48,7 +48,7 @@ func collisionBegin(intrudingBody: Node2D) -> void:
 		if (intrudingBody.has_meta("Lethality")):
 			match intrudingBody.get_meta("Lethality"):
 				1:
-					hp -= 1
+					hp -= .34
 					state = 0
 			if hp <= 0:
 				die()

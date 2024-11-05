@@ -13,3 +13,9 @@ func gameOver(condition) -> void:
 
 func senatorsDepleted() -> void:
 	gameOver(0)
+
+func quotaMet() -> void:
+	gameOver(1)
+
+func timeOut() -> void:
+	gameOver(2)

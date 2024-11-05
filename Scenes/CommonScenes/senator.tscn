@@ -1,7 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bryosoyfrafkj"]
+[gd_scene load_steps=8 format=3 uid="uid://bryosoyfrafkj"]
 
 [ext_resource type="Script" path="res://Scripts/senator.gd" id="1_s0388"]
 [ext_resource type="Texture2D" uid="uid://ba4dm288lw4wj" path="res://Sprites/tempWalkCycle.bmp" id="2_rhjv4"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4ykah"]
+friction = 0.3
+bounce = 0.4
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t0qe8"]
 radius = 11.0
@@ -47,6 +51,7 @@ _data = {
 }
 
 [node name="senator" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_4ykah")
 script = ExtResource("1_s0388")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -66,4 +71,11 @@ hframes = 5
 wait_time = 1.8
 autostart = true
 
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(1.05, 1.05)
+shape = SubResource("CapsuleShape2D_t0qe8")
+
 [connection signal="timeout" from="stillnessCheckTimer" to="." method="stillnessCheck"]
+[connection signal="body_entered" from="Area2D" to="." method="collisionBegin"]
