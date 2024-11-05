@@ -15,8 +15,9 @@ func _process(_delta: float) -> void:
 	pass
 
 func senatorPlaced():
+	senatorsRemaining -= 1
+	
 	if senatorsRemaining > 0:
-		senatorsRemaining -= 1
 		senatorsRemainingLabel.text = "%02d" % senatorsRemaining
 	elif senatorsRemaining == 0:
 		senatorsDepleted.emit()

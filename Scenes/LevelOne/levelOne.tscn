@@ -25,6 +25,8 @@ senatorsRemaining = 40
 [node name="quotaCounter" parent="." instance=ExtResource("6_hce67")]
 position = Vector2(655, 178)
 
+[connection signal="timeOut" from="levelClock" to="." method="timeOut"]
 [connection signal="onSenatorDeath" from="pitGeneric" to="quotaCounter" method="senatorKilled"]
 [connection signal="senatorPlaced" from="pitGeneric" to="senatorCounter" method="senatorPlaced"]
 [connection signal="senatorsDepleted" from="senatorCounter" to="." method="senatorsDepleted"]
+[connection signal="quotaReached" from="quotaCounter" to="." method="quotaMet"]

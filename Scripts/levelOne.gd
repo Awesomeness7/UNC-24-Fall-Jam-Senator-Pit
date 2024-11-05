@@ -1,5 +1,7 @@
 extends Node2D
 
+signal gameOver(endCondition: int)
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -8,14 +10,13 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	pass
 
-func gameOver(condition) -> void:
-	print(condition)
 
 func senatorsDepleted() -> void:
-	gameOver(0)
-
-func quotaMet() -> void:
-	gameOver(1)
+	print("NO MORE SENATORS!")
+	gameOver.emit(0)
 
 func timeOut() -> void:
-	gameOver(2)
+	gameOver.emit(1)
+
+func quotaMet() -> void:
+	gameOver.emit(2)

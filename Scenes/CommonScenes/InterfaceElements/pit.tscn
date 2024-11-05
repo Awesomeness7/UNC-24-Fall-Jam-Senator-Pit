@@ -27,6 +27,7 @@ color = Color(0.388972, 0.704362, 0.814053, 1)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="clickArea"]
 position = Vector2(320, 115)
 shape = SubResource("RectangleShape2D_c1dn6")
+debug_color = Color(0.631373, 0.631373, 0.631373, 1)
 
 [node name="carpet" type="StaticBody2D" parent="."]
 
