@@ -5,6 +5,7 @@ signal onDeath
 const GRAVITY = 300.0
 
 var deadSenatorSprite = load("res://Sprites/tempDeadSenator.bmp")
+@onready var animation = $AnimationPlayer
 
 # Crucial multipurpose variables
 var state: int = 0 # 0 = Passive, 1 = dead, 2 = standing up, 3 walking off stage
@@ -33,6 +34,7 @@ func die():
 	var sprite = get_node("./Sprite2D")
 	sprite.texture = deadSenatorSprite
 	sprite.hframes = 1
+	animation.stop()
 	
 	onDeath.emit()
 

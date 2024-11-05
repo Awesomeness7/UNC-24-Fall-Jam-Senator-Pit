@@ -1,23 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://jj6nbq41t02g"]
+[gd_scene load_steps=6 format=3 uid="uid://jj6nbq41t02g"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_2wllb"]
 [ext_resource type="PackedScene" uid="uid://id4r10exgoa6" path="res://Scenes/LevelOne/levelOne.tscn" id="2_anvor"]
 [ext_resource type="Texture2D" uid="uid://cjdel8qrqyxbe" path="res://Sprites/backgroundTiling.bmp" id="2_awryi"]
+[ext_resource type="Texture2D" uid="uid://bocy6xfc3h358" path="res://Sprites/frame.bmp" id="3_6jxty"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_iayba"]
 font_size = 80
 
 [node name="main" type="Node2D"]
+process_mode = 3
 position = Vector2(0, -1)
 script = ExtResource("1_2wllb")
 
 [node name="background" type="Node2D" parent="."]
-
-[node name="placeholderSprite" type="ColorRect" parent="background"]
-offset_right = 1920.0
-offset_bottom = 1080.0
-color = Color(0.588128, 0.603388, 0.888314, 1)
-metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="background"]
 offset_right = 1920.0
@@ -30,15 +26,16 @@ stretch_mode = 1
 [node name="pitFrame" type="Node2D" parent="."]
 position = Vector2(625, 0)
 
-[node name="placeholderSprite" type="ColorRect" parent="pitFrame"]
-offset_right = 670.0
-offset_bottom = 1080.0
-color = Color(0.54987, 0.468534, 0.728277, 1)
+[node name="Sprite2D" type="Sprite2D" parent="pitFrame"]
+position = Vector2(335, 540)
+texture = ExtResource("3_6jxty")
 
 [node name="activeLevel" parent="." instance=ExtResource("2_anvor")]
+process_mode = 1
 position = Vector2(640, 15)
 
 [node name="pauseMenu" type="Node2D" parent="."]
+process_mode = 3
 visible = false
 
 [node name="dimmerRect" type="ColorRect" parent="pauseMenu"]
