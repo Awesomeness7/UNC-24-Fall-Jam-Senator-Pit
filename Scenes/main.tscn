@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://jj6nbq41t02g"]
+
+[ext_resource type="Script" path="res://Scripts/main.gd" id="1_2wllb"]
+[ext_resource type="PackedScene" uid="uid://id4r10exgoa6" path="res://Scenes/LevelOne/levelOne.tscn" id="2_anvor"]
+[ext_resource type="Texture2D" uid="uid://cjdel8qrqyxbe" path="res://Sprites/backgroundTiling.bmp" id="2_awryi"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_iayba"]
+font_size = 80
+
+[node name="main" type="Node2D"]
+position = Vector2(0, -1)
+script = ExtResource("1_2wllb")
+
+[node name="background" type="Node2D" parent="."]
+
+[node name="placeholderSprite" type="ColorRect" parent="background"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.588128, 0.603388, 0.888314, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="background"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+scale = Vector2(6, 6)
+texture = ExtResource("2_awryi")
+expand_mode = 2
+stretch_mode = 1
+
+[node name="pitFrame" type="Node2D" parent="."]
+position = Vector2(625, 0)
+
+[node name="placeholderSprite" type="ColorRect" parent="pitFrame"]
+offset_right = 670.0
+offset_bottom = 1080.0
+color = Color(0.54987, 0.468534, 0.728277, 1)
+
+[node name="activeLevel" parent="." instance=ExtResource("2_anvor")]
+position = Vector2(640, 15)
+
+[node name="pauseMenu" type="Node2D" parent="."]
+visible = false
+
+[node name="dimmerRect" type="ColorRect" parent="pauseMenu"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.301961, 0.301961, 0.301961, 0.494118)
+
+[node name="Label" type="Label" parent="pauseMenu"]
+offset_left = 848.0
+offset_top = 83.0
+offset_right = 1079.0
+offset_bottom = 193.0
+text = "Pause"
+label_settings = SubResource("LabelSettings_iayba")

@@ -18,7 +18,7 @@ func _process(delta: float) -> void:
 		timeRemaining -= delta
 	
 		if timeRemaining > 10:
-			timeRemainingLabel.text = "%d:%02d" % [(int(timeRemaining) / 60), int (timeRemaining) % 60]
+			timeRemainingLabel.text = "%d:%02d" % [int (timeRemaining / 60), int (timeRemaining) % 60]
 		elif ((timeRemaining <= 10) && (timeRemaining > 0)):
 			timeRemainingLabel.text = "%0.2f" % timeRemaining
 		elif (timeRemaining <= 0):

@@ -1,10 +1,48 @@
-[gd_scene load_steps=4 format=3 uid="uid://lqp2gomgmv2r"]
+[gd_scene load_steps=7 format=3 uid="uid://lqp2gomgmv2r"]
 
 [ext_resource type="Script" path="res://Scripts/sawblade.gd" id="1_d4k5j"]
-[ext_resource type="Texture2D" uid="uid://fiyc3hsnx78m" path="res://Sprites/temporarySawblade.png" id="2_2wsij"]
+[ext_resource type="Texture2D" uid="uid://cwwqycfxo4ycl" path="res://Sprites/sawbladeSpinCycle.bmp" id="2_57khk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6yprw"]
 radius = 587.532
+
+[sub_resource type="Animation" id="Animation_b5fba"]
+resource_name = "spinny"
+length = 0.15
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 1, 2, 2]
+}
+
+[sub_resource type="Animation" id="Animation_lrec8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y2ixh"]
+_data = {
+"RESET": SubResource("Animation_lrec8"),
+"spinny": SubResource("Animation_b5fba")
+}
 
 [node name="sawblade" type="Node2D"]
 position = Vector2(64, 64)
@@ -18,4 +56,11 @@ metadata/Lethality = 1
 shape = SubResource("CircleShape2D_6yprw")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-texture = ExtResource("2_2wsij")
+scale = Vector2(24.2947, 24.2947)
+texture = ExtResource("2_57khk")
+hframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D"]
+libraries = {
+"": SubResource("AnimationLibrary_y2ixh")
+}

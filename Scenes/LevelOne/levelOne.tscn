@@ -22,3 +22,4 @@ position = Vector2(655, 89)
 senatorsRemaining = 40
 
 [connection signal="senatorPlaced" from="pitGeneric" to="senatorCounter" method="senatorPlaced"]
+[connection signal="senatorsDepleted" from="senatorCounter" to="." method="senatorsDepleted"]
