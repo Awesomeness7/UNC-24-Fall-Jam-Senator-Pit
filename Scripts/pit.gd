@@ -1,6 +1,7 @@
 extends Node2D
 
 signal senatorPlaced
+signal onSenatorDeath
 
 var Senator = load("res://Scenes/CommonScenes/senator.tscn")
 
@@ -16,5 +17,10 @@ func clickDetectedInClickArea(event: InputEvent) -> void:
 	if (event is InputEventMouseButton) and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		var senator = Senator.instantiate()
 		senator.position = get_local_mouse_position();
+		senator.connect("onDeath", Callable(self, "_senatorDies"))
+
 		add_child(senator)
 		senatorPlaced.emit()
+		
+func _senatorDies():
+	onSenatorDeath.emit()

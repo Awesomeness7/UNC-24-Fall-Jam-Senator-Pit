@@ -1,5 +1,7 @@
 extends RigidBody2D
 
+signal onDeath
+
 const GRAVITY = 300.0
 
 var deadSenatorSprite = load("res://Sprites/tempDeadSenator.bmp")
@@ -31,6 +33,8 @@ func die():
 	var sprite = get_node("./Sprite2D")
 	sprite.texture = deadSenatorSprite
 	sprite.hframes = 1
+	
+	onDeath.emit()
 
 func stillnessCheck() -> void:
 	if (state == 0):

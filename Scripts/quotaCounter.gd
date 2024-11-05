@@ -22,3 +22,7 @@ func senatorKilled() -> void:
 
 	if (numDeadSenators == quota):
 		quotaReached.emit()
+
+
+func senatorDies() -> void:
+	pass # Replace with function body.
